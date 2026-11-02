@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: 48px 24px;
+    background:
+        radial-gradient(ellipse at 50% 0, rgba(255, 255, 255, 0.9), transparent 58%),
+        #f5f2ed;
+    color: #24231f;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.page {
+    width: min(1120px, 100%);
+}
+
+.page-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: #8b7558;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+}
+
+.intro {
+    margin: 12px 0 0;
+    color: #77736c;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    height: clamp(380px, 62vh, 590px);
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid rgba(81, 69, 52, 0.1);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 24px 70px rgba(58, 48, 34, 0.12);
+}
+
+.container img {
+    min-width: 0;
+    width: 10%;
+    height: 100%;
+    flex: 1;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    transition:
+        flex 500ms ease,
+        filter 500ms ease,
+        border-radius 500ms ease;
+}
+
+.container img:hover {
+    flex: 3;
+    filter: saturate(1.05);
+}
+
+.page-footer {
+    margin-top: 18px;
+    color: #89847b;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 36px 16px;
+    }
+
+    .page-header {
+        margin-bottom: 22px;
+    }
+
+    .container {
+        height: 420px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+    }
+
+    .container img {
+        width: 78%;
+        min-width: 78%;
+        flex: none;
+        scroll-snap-align: center;
+    }
+
+    .container img:hover {
+        flex: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
